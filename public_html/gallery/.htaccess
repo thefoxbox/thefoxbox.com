@@ -1,0 +1,4 @@
+AuthType basic
+AuthName "The Fox Box Gallery"
+AuthUserFile /opt/www/thefoxbox.com/.htpasswd
+Require valid-user

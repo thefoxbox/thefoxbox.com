@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <title>Ubuntu Realtime Kernel Quick Configuration Guide</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+    <link rel="stylesheet" href="/css/style.css" type="text/css" media="screen"/>
+</head>
+<body id="content-page">
+<div id="feeds">
+    <a href="http://www.twitter.com/thefoxboxdotcom"><img src="/images/twitter-icon32x32.png" alt="" style="vertical-align:middle;border:0"/></a>
+    <a href="http://feeds.feedburner.com/thefoxboxdotcom" rel="alternate" type="application/rss+xml"><img src="/images/feed-icon32x32.png" alt="" style="vertical-align:middle;border:0"/></a>
+</div>
+<div id="header">
+    <img src="/images/thefoxbox-logo-header.jpg" alt="The Fox Box"/>
+</div>
+<div id="content">
+    <h1>Ubuntu Realtime Kernel Quick Configuration Guide</h1>
+
+    <h3>Download the latest Real-Time patch and corresponding kernel version</h3>
+
+    <div class="code">
+    wget http://www.kernel.org/pub/linux/kernel/projects/rt/patch-2.6.29.6-rt23.bz2<br/>
+    wget http://www.kernel.org/pub/linux/kernel/v2.6/linux-2.6.29.6.tar
+    </div>
+
+    <h3>Unpack the kernel source and apply the real-time patch</h3>
+
+    <div class="code">
+    cd /usr/src<br/>
+    sudo tar xjvf ~/linux-2.6.29.6.tar.bz2<br/>
+    cd linux-2.6.29.5/<br/>
+    sudo sh -c 'bzcat ~/patch-2.6.29.6-rt22.bz2 | patch -p1'<br/>
+    </div>
+
+    <h3>Configure the kernel with essential real-time settings</h3>
+
+    <div class="code">
+    Processor type and features ---&gt;<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;Preemption Mode (Complete Preemption (Real-Time))<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;Timer frequency (1000 HZ)<br/>
+    </div>
+              
+    <h3>Build the kernel</h3>
+
+    <div class="code">
+    sudo fakeroot make-kpkg --initrd kernel_image kernel_headers<br/>
+    </div>
+
+    <h3>Install the kernel and reboot</h3>
+
+    Use “dpkg -i” to install the new header and kernel packages located in /usr/src/<br/>
+</div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try{
+    var pageTracker = _gat._getTracker("UA-12490582-1");
+    pageTracker._trackPageview();
+} catch(err) {}
+</script>
+</body>
+</html>

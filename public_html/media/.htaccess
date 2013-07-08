@@ -1,0 +1,9 @@
+AuthType basic
+AuthName "The Fox Box Playlist"
+AuthUserFile /opt/www/thefoxbox.com/.htpasswd
+Require valid-user
+
+#<Files Lowside-Of-Below.mp3>
+#    Allow from all
+#    Satisfy any
+#</Files>
