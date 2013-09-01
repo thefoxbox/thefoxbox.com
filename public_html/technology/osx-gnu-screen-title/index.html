@@ -1,9 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-    <title>Linux Audio Information And Technical Tips</title>
+    <title>OSX GNU Screen Title</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
-    <meta name="Description" content="Technical Tips Geared Torward The Linux Audio User"/>
     <link rel="stylesheet" href="/css/style.css" type="text/css" media="screen"/>
 </head>
 <body id="content-page">
@@ -15,15 +14,37 @@
     <img src="/images/thefoxbox-logo-header.jpg" alt="The Fox Box"/>
 </div>
 <div id="content">
-    <h1>Linux Audio Technical Tips</h1>
+    <h1>Getting GNU Screen to dynamically update OSX Terminal titles</h1>
 
-    <ul>
-        <li><a href="/technology/ubuntu-realtime-kernel/" title="Ubuntu Realtime Kernel Quick Configuration Guide">Ubuntu Realtime Kernel</a></li>
-    </ul>
-    <h1>OSX Tips</h1>
-    <ul>
-    	<li><a href="/technology/osx-gnu-screen-title/" title="OSX GNU Screen Title">OSX GNU Screen Title</a></li>
-    </ul>
+    <h3>~/.bash_profile</h3>
+    <div class="code" style="overflow:auto; white-space:nowrap;">
+    if [ -f ~/.bashrc ]; then<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;. ~/.bashrc<br />
+    fi<br />
+    <br />
+    PS1='[\u@\h \W]\\$ '<br />
+    </div>
+
+    <h3>~/.bashrc</h3>
+
+    <div class="code" style="overflow:auto; white-space:nowrap;">
+    case ${TERM} in<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;xterm*)<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PROMPT_COMMAND='printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/~}"'<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;;<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;screen*)<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PROMPT_COMMAND='printf "\033]0;%s@%s:%s\033\\" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/~}"'<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;;<br />
+    esac<br />
+    <br />
+    [ "$PS1" = "\\s-\\v\\\$ " ] && PS1="[\u@\h \W]\\$ "<br />
+    </div>
+
+    <h3>~/.screenrc</h3>
+
+    <div class="code" style="overflow:auto; white-space:nowrap;">
+    termcapinfo xterm* 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
+    </div>
 </div>
 
 <script type="text/javascript">
