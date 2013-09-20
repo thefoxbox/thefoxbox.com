@@ -4,47 +4,43 @@
   <meta name="Description" content="{{description}}"/>
   <link rel="stylesheet" href="/static/css/style.css" type="text/css" media="screen"/>
   <script type="text/javascript" src="/static/js/audio-player.js"></script>
-  <script type="text/javascript">  
-    AudioPlayer.setup("/static/plugins/player.swf", {  
-      width: 290,  
+  <script type="text/javascript">
+    AudioPlayer.setup("/static/plugins/player.swf", {
+      width: 290,
       autostart: "yes",
-      initialvolume: 100,  
-      transparentpagebg: "yes",  
-      left: "000000",  
-      lefticon: "FFFFFF"  
-    });  
-  </script>  
+      initialvolume: 100,
+      transparentpagebg: "yes",
+      left: "000000",
+      lefticon: "FFFFFF"
+    });
+  </script>
 </head>
-<body id="content-page">
-<div id="feeds">
-  <a href="https://github.com/thefoxbox">
-    <img src="/static/images/github-icon32x32.png" alt="" style="vertical-align:middle;border:0"/>
-  </a>
-  <a href="http://www.twitter.com/thefoxboxdotcom">
-    <img src="/static/images/twitter-icon32x32.png" alt="" style="vertical-align:middle;border:0"/>
-  </a>
-  <a href="http://feeds.feedburner.com/thefoxboxdotcom" rel="alternate" type="application/rss+xml">
-    <img src="/static/images/feed-icon32x32.png" alt="" style="vertical-align:middle;border:0"/>
-  </a>
-</div>
-<div id="header">
-  <img src="/static/images/thefoxbox-logo-header.jpg" alt="The Fox Box"/>
-</div>
-<div id="content">
-    <p id="audioplayer">Missing Adobe Flash Plugin</p>  
-    <script type="text/javascript">  
-      AudioPlayer.embed("audioplayer", {soundFile: "/static/media/{{media}}"});  
+<body>
+  <div id="header">
+    <div id="header-feeds">
+      <a href="https://github.com/thefoxbox"><img src="/static/images/github-icon32x32.png" alt=""/></a>
+      <a href="http://www.twitter.com/thefoxboxdotcom"><img src="/static/images/twitter-icon32x32.png" alt=""/></a>
+      <a href="http://feeds.feedburner.com/thefoxboxdotcom" rel="alternate" type="application/rss+xml"><img src="/static/images/feed-icon32x32.png" alt=""/></a>
+    </div>
+    <div id="header-logo">
+      <a href="/"><img width="240px" src="/static/images/thefoxbox-logo-header.jpg" alt="The Fox Box"/></a>
+    </div>
+  </div>
+  <div id="content">
+    <p id="audioplayer">Missing Adobe Flash Plugin</p>
+    <script type="text/javascript">
+      AudioPlayer.embed("audioplayer", {soundFile: "/static/media/{{media}}"});
     </script>
     {{{content}}}
-</div>
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try{
-  var pageTracker = _gat._getTracker("UA-12490582-1");
-  pageTracker._trackPageview();
-} catch(err) {}
-</script>
+  </div>
+  <script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <script type="text/javascript">
+  try{
+    var pageTracker = _gat._getTracker("UA-12490582-1");
+    pageTracker._trackPageview();
+  } catch(err) {}
+  </script>
 </body>
