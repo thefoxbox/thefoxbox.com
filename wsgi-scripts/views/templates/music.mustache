@@ -3,6 +3,17 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
   <meta name="Description" content="{{description}}"/>
   <link rel="stylesheet" href="/static/css/style.css" type="text/css" media="screen"/>
+  <script type="text/javascript" src="/static/js/audio-player.js"></script>
+  <script type="text/javascript">  
+    AudioPlayer.setup("/static/plugins/player.swf", {  
+      width: 290,  
+      autostart: "yes",
+      initialvolume: 100,  
+      transparentpagebg: "yes",  
+      left: "000000",  
+      lefticon: "FFFFFF"  
+    });  
+  </script>  
 </head>
 <body id="content-page">
 <div id="feeds">
@@ -20,16 +31,10 @@
   <img src="/static/images/thefoxbox-logo-header.jpg" alt="The Fox Box"/>
 </div>
 <div id="content">
-    <script type="text/javascript" src="/static/js/audio-player.js"></script>
-    <div>
-    <object type="application/x-shockwave-flash" data="/static/plugins/player.swf" id="audioplayer" height="24" width="290">
-        <param name="movie" value="/static/plugins/player.swf"/>
-        <param name="FlashVars" value="playerID=audioplayer&amp;autostart=yes&amp;soundFile=/static/media/{{media}}"/>
-        <param name="quality" value="high"/>
-        <param name="menu" value="false"/>
-        <param name="wmode" value="transparent"/>
-    </object> 
-    </div>
+    <p id="audioplayer">Missing Adobe Flash Plugin</p>  
+    <script type="text/javascript">  
+      AudioPlayer.embed("audioplayer", {soundFile: "/static/media/{{media}}"});  
+    </script>
     {{{content}}}
 </div>
 <script type="text/javascript">
