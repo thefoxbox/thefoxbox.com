@@ -1,0 +1,45 @@
+<head>
+  <title>{{title}}</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+  <meta name="Description" content="{{description}}"/>
+  <link rel="stylesheet" href="/static/css/style.css" type="text/css" media="screen"/>
+</head>
+<body id="content-page">
+<div id="feeds">
+  <a href="https://github.com/thefoxbox">
+    <img src="/static/images/github-icon32x32.png" alt="" style="vertical-align:middle;border:0"/>
+  </a>
+  <a href="http://www.twitter.com/thefoxboxdotcom">
+    <img src="/static/images/twitter-icon32x32.png" alt="" style="vertical-align:middle;border:0"/>
+  </a>
+  <a href="http://feeds.feedburner.com/thefoxboxdotcom" rel="alternate" type="application/rss+xml">
+    <img src="/static/images/feed-icon32x32.png" alt="" style="vertical-align:middle;border:0"/>
+  </a>
+</div>
+<div id="header">
+  <img src="/static/images/thefoxbox-logo-header.jpg" alt="The Fox Box"/>
+</div>
+<div id="content">
+    <script type="text/javascript" src="/static/js/audio-player.js"></script>
+    <div>
+    <object type="application/x-shockwave-flash" data="/static/plugins/player.swf" id="audioplayer" height="24" width="290">
+        <param name="movie" value="/static/plugins/player.swf"/>
+        <param name="FlashVars" value="playerID=audioplayer&amp;autostart=yes&amp;soundFile=/static/media/{{media}}"/>
+        <param name="quality" value="high"/>
+        <param name="menu" value="false"/>
+        <param name="wmode" value="transparent"/>
+    </object> 
+    </div>
+    {{{content}}}
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try{
+  var pageTracker = _gat._getTracker("UA-12490582-1");
+  pageTracker._trackPageview();
+} catch(err) {}
+</script>
+</body>

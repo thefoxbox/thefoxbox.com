@@ -1,0 +1,51 @@
+body {
+    background-color: #000;
+    background-image: url("../images/thefoxbox-logo-background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    color: #FFF;
+    font-family: sans-serif;
+}
+#content-page {
+    background-color: #000;
+    background-image: none;
+    color: #FFF;
+    font-family: sans-serif;
+}
+#header {
+    margin: 0px;
+    text-align: center;
+}
+#content {
+    margin-left: 15%;
+    margin-right: 15%;
+}
+#feeds {
+    text-align: right;
+}
+a img {
+    border: none;
+    outline: none;
+}
+li {
+    font: 14pt sans-serif;
+}
+li a {
+    display: block;
+    padding: 8px 8px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #FFF;
+}
+li a:hover {
+    color: #4EC5E4;
+}
+ul {
+    list-style-type: square;
+}
+.code {
+    background-color: #666;
+    font-family: arial;
+    padding: 5px;
+}
