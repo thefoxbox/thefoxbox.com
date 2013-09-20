@@ -27,11 +27,11 @@ body {
     box-shadow: 0 0 5px #333;
 }
 div#content.empty {
+    height: 420px;
     background-color: #000;
     background-image: url("../images/thefoxbox-logo-background.jpg");
     background-repeat: no-repeat;
     background-position: center;
-    height: 500px;
 }
 h1 {
     color: #006699;
