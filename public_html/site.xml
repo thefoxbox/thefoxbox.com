@@ -12,4 +12,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+  <url>
+    <loc>http://www.thefoxbox.com/article/code-review/gerrit2-trac.html</loc>
+    <lastmod>2013-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
 </urlset>
