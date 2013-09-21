@@ -4,27 +4,21 @@ from webob import exc, Request, Response
 
 sys.path.append(os.path.dirname(__file__))
 
+from config.urls import urls
 import controllers
 
-map = Mapper()
-map.connect('front', '/', controller='front', action='index')
-map.connect('music', '/music/{section}/{page}.html', controller='music', action='view')
-map.connect('article', '/article/{section}/{page}.html', controller='article', action='view')
-map.connect('gallery', '/gallery/{page}.html', controller='gallery', action='view')
-
-class TheFoxBox(object):
+class Application(object):
     def __call__(self, environ, start_response):
-        controller = self.load_controller(environ, start_response)
+        controller = self.load_controller(environ)
         response = self.dispatch(controller, environ, start_response)
-
         if not response:
             return exc.HTTPNotFound()(environ, start_response)
-        return response    
+        return response
 
-    def load_controller(self, environ, start_response):
+    def load_controller(self, environ):
         """Return controller instance from controller module."""
         req = Request(environ)
-        match = map.match(req.path_info)
+        match = urls.match(req.path_info)
         if not match:
             return None
         controller = match['controller']
@@ -44,11 +38,11 @@ class TheFoxBox(object):
             return None
         controller = controller()
         req = Request(environ)
-        match = map.match(req.path_info)
+        match = urls.match(req.path_info)
         if not match:
             return None
         action = match['action']
         return controller(action, environ, start_response)
 
-application = TheFoxBox()
+application = Application()
 
