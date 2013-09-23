@@ -1,5 +1,5 @@
 import os, sys
-from routes import Mapper
+from routes.middleware import RoutesMiddleware
 from webob import exc, Request, Response
 
 sys.path.append(os.path.dirname(__file__))
@@ -45,4 +45,4 @@ class Application(object):
         return controller(action, environ, start_response)
 
 application = Application()
-
+application = RoutesMiddleware(application, urls)
