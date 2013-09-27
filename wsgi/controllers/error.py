@@ -1,6 +1,5 @@
 """ WSGI Error Controller """
 
-from webob import Response
 from base import BaseController
 from views.error import ErrorView
 

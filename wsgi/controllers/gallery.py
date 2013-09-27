@@ -1,6 +1,5 @@
 """ WSGI Gallery Controller """
 
-from webob import Response
 from base import BaseController
 from views.gallery import GalleryView
 

@@ -1,6 +1,5 @@
 """ WSGI Music Controller """
 
-from webob import Response
 from base import BaseController
 from views.music import MusicView
 

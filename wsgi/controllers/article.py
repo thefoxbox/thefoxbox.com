@@ -1,6 +1,5 @@
 """ WSGI Article Controller """
 
-from webob import Response
 from base import BaseController
 from views.article import ArticleView
 
