@@ -35,6 +35,9 @@ div#content.empty {
 }
 div#content.gallery {
     background-color: #000;
+    width: 90%;
+    height: 550px;
+    background: #000;
 }
 h1 {
     color: #006699;
