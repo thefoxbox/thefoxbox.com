@@ -18,15 +18,21 @@ Apache Configuration
 
     DocumentRoot /opt/www/thefoxbox.com/public_html
 
-    WSGIScriptAlias / /opt/www/thefoxbox.com/wsgi-scripts/app.wsgi
-
-    <Directory /opt/www/thefoxbox.com/public_html/wsgi-scripts>
+    <Directory "/opt/www/thefoxbox.com/public_html">
         AllowOverride None
         Order deny,allow
         Allow from all
     </Directory>
 
-    Alias /site.xml           /opt/www/thefoxbox.com/public_html/site.xml
-    Alias /robots.txt         /opt/www/thefoxbox.com/public_html/robots.txt
-    Alias /favicon.ico        /opt/www/thefoxbox.com/public_html/favicon.ico
-    AliasMatch ^/static/(.*)$ /opt/www/thefoxbox.com/public_html/static/$1
+    WSGIScriptAlias / /opt/www/thefoxbox.com/wsgi/app.wsgi
+
+    <Directory "/opt/www/thefoxbox.com/wsgi">
+        AllowOverride None
+        Order deny,allow
+        Allow from all
+    </Directory>
+
+    Alias /robots.txt  /opt/www/thefoxbox.com/public_html/robots.txt
+    Alias /sitemap.xml /opt/www/thefoxbox.com/public_html/sitemap.xml
+    Alias /favicon.ico /opt/www/thefoxbox.com/public_html/favicon.ico
+    Alias /static/     /opt/www/thefoxbox.com/public_html/static/

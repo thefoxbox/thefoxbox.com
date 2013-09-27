@@ -17,11 +17,10 @@ class Application(object):
 
     def load_controller(self, environ):
         """Return controller instance from controller module."""
-        req = Request(environ)
-        match = urls.match(req.path_info)
+        url, match = environ['wsgiorg.routing_args']
         if not match:
             return None
-        controller = match['controller']
+        controller = match.get('controller')
         return self.find_controller(controller)
 
     def find_controller(self, controller):
@@ -37,11 +36,10 @@ class Application(object):
         if not controller:
             return None
         controller = controller()
-        req = Request(environ)
-        match = urls.match(req.path_info)
+        url, match = environ['wsgiorg.routing_args']
         if not match:
             return None
-        action = match['action']
+        action = match.get('action')
         return controller(action, environ, start_response)
 
 application = Application()
