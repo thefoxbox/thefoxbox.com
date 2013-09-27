@@ -33,6 +33,9 @@ div#content.empty {
     background-repeat: no-repeat;
     background-position: center;
 }
+div#content.gallery {
+    background-color: #000;
+}
 h1 {
     color: #006699;
     border-bottom: 1px solid #ebebeb;
